@@ -1,5 +1,7 @@
 package cursojava.classe;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.swing.JOptionPane;
@@ -18,19 +20,19 @@ public class Aluno {
 	public String escola;
 	public String dataMatricula;
 
-	private Disciplina disciplina = new Disciplina();
-
-	//Getters e setters
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
-	}
-	
-	public Disciplina getDisciplina() {
-		return disciplina;
-	}
-	
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+
+	
+	
 	public Aluno() {/* Cria os dados na memoria - Sendo padrão do Java */
 		// TODO Auto-generated constructor stub
 	}
@@ -125,8 +127,14 @@ public class Aluno {
 	/* Calculo das medias */
 	/* Metodo que retorna a media do aluno */
 	public double getMediaNota() {
-		return (disciplina.getNota1() + disciplina.getNota2()+ disciplina.getNota3()
-		+ disciplina.getNota4()) / 4;
+		
+		double somaNotas = 0.0;
+		
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getNota() ;
+		}
+		
+		return somaNotas / disciplinas.size();
 	}
 
 	/*
@@ -146,12 +154,14 @@ public class Aluno {
 
 	
 
+	
+
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", registoGeral=" + registoGeral + ", numeroCpf="
 				+ numeroCpf + ", dataNascimento=" + dataNascimento + ", etinia=" + etinia + ", nomeMae=" + nomeMae
-				+ ", nomePai=" + nomePai + ", escola=" + escola + ", dataMatricula=" + dataMatricula + ", disciplina="
-				+ disciplina + "]";
+				+ ", nomePai=" + nomePai + ", escola=" + escola + ", dataMatricula=" + dataMatricula + ", disciplinas="
+				+ disciplinas + "]";
 	}
 
 	@Override
