@@ -8,57 +8,71 @@ import java.util.ArrayList;
 public class PrimeiraClasseJava {
 
     public static void main(String[] args) {
-
         // Coletando dados do aluno
-        String nome = JOptionPane.showInputDialog("Qual nome do aluno?");
-        String idade = JOptionPane.showInputDialog("Qual sua idade " + nome);
-        String dataNascimento = JOptionPane.showInputDialog("Data de nascimento " + nome);
-        String rg = JOptionPane.showInputDialog("Qual seu RG?" + nome);
-        String cpf = JOptionPane.showInputDialog("Qual seu CPF?" + nome);
-        String nomeMae = JOptionPane.showInputDialog("Qual nome da sua Mãe? " + nome);
-        String nomePai = JOptionPane.showInputDialog("Qual nome do seu Pai?" + nome);
-        String escola = JOptionPane.showInputDialog("Onde você estudou?" + nome);
-        String dataMatricula = JOptionPane.showInputDialog("Data de matrícula " + nome);
+        String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
+        String idade = JOptionPane.showInputDialog("Qual sua idade, " + nome + "?");
 
-        // Criando um objeto aluno e definindo os atributos
         Aluno aluno1 = new Aluno();
         aluno1.setNome(nome);
-        aluno1.setIdade(Integer.parseInt(idade));
-        aluno1.setDataNascimento(dataNascimento);
-        aluno1.setRegistoGeral(rg);
-        aluno1.setNumeroCpf(cpf);
-        aluno1.setNomeMae(nomeMae);
-        aluno1.setNomePai(nomePai);
-        aluno1.setEscola(escola);
-        aluno1.setDataMatricula(dataMatricula);
+
+        try {
+            aluno1.setIdade(Integer.parseInt(idade));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Idade inválida! Será atribuída a idade padrão de 0.");
+            aluno1.setIdade(0);
+        }
 
         // Adicionando disciplinas e notas ao aluno
         ArrayList<Disciplina> disciplinas = new ArrayList<>();
+        for (int pos = 1; pos <= 4; pos++) {
+            String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + "?");
+            String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina " + pos + "?");
 
-       for (int pos = 1; pos <= 4; pos++) {
-    	   String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina "+pos+" ?");
-    	   String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina? "+pos+"");
-    	   
-    	   
-    	   Disciplina disciplina = new Disciplina();
-    	   disciplina.setDisciplina(notaDisciplina);
-    	   disciplina.setNota(Double.valueOf(notaDisciplina));
-    	   
-    	   aluno1.getDisciplinas().add(disciplina);
-       }
-        
+            Disciplina disciplina = new Disciplina();
+            disciplina.setDisciplina(nomeDisciplina);
+
+            try {
+                double nota = Double.parseDouble(notaDisciplina);
+                disciplina.setNota(nota);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Nota inválida! Será atribuída a nota 0.");
+                disciplina.setNota(0.0);
+            }
+
+            disciplinas.add(disciplina);
+        }
+
         aluno1.setDisciplinas(disciplinas);
 
-        
-        int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina ?");
-        if (escolha == 0) {
-        	String diciplinaRemover = JOptionPane.showInputDialog("Qula a disciplina  ? " );
-        	aluno1.getDisciplinas().remove(Integer.valueOf(diciplinaRemover).intValue()- 1);
+        // Opção para remover disciplinas
+        int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+        if (escolha == JOptionPane.YES_OPTION) {
+            int continuarRemover = JOptionPane.YES_OPTION;
+            while (continuarRemover == JOptionPane.YES_OPTION) {
+                String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina deseja remover?");
+                Disciplina encontrada = null;
+
+                for (Disciplina d : aluno1.getDisciplinas()) {
+                    if (d.getDisciplina().equalsIgnoreCase(disciplinaRemover)) {
+                        encontrada = d;
+                        break;
+                    }
+                }
+
+                if (encontrada != null) {
+                    aluno1.getDisciplinas().remove(encontrada);
+                    JOptionPane.showMessageDialog(null, "Disciplina " + disciplinaRemover + " removida!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Disciplina não encontrada!");
+                }
+
+                continuarRemover = JOptionPane.showConfirmDialog(null, "Deseja remover outra disciplina?");
+            }
         }
-        
+
         // Exibindo informações do aluno
-        System.out.println(aluno1.toString());
-        System.out.println("Média do Aluno = " + aluno1.getMediaNota());
-        System.out.println("Resultado = " + aluno1.getAlunoAprovado());
+        JOptionPane.showMessageDialog(null, aluno1.toString());
+        JOptionPane.showMessageDialog(null, "Média do Aluno = " + aluno1.getMediaNota());
+        JOptionPane.showMessageDialog(null, "Resultado = " + aluno1.getAlunoAprovado());
     }
 }
