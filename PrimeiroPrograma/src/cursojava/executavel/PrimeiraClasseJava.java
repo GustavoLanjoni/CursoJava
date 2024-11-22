@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import cursojava.classe.Aluno;
 import cursojava.classe.Disciplina;
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.Iterator;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class PrimeiraClasseJava {
 			// Adicionando disciplinas e notas ao aluno
 			ArrayList<Disciplina> disciplinas = new ArrayList<>();
 
-			for (int pos = 1; pos <= 4; pos++) {
+			for (int pos = 1; pos <= 1; pos++) {
 				String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + " ?");
 				String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina? " + pos + "");
 
@@ -75,6 +76,20 @@ public class PrimeiraClasseJava {
 		}
 		for (int pos = 0; pos < alunos.size(); pos ++) {
 			Aluno aluno = alunos.get(pos);
+			
+		if(aluno.getNome().equals("Gustavo")) {
+			Aluno trocar = new Aluno();
+			trocar.setNome("Aluno foi trocado");
+			
+			Disciplina disciplina = new Disciplina();
+			disciplina.setNota(96);
+			
+			trocar.getDisciplinas().add(disciplina);	
+			
+			alunos.set(pos, trocar);
+			aluno = alunos.get(pos);
+			
+		}
 			
 			System.out.println("Aluno = " + aluno.getNome());
 			System.out.println("Média do aluno = " + aluno.getMediaNota());
