@@ -2,20 +2,20 @@ package cursojava.classe;
 
 public class Pessoa {
 
-	public String nome;
-	public int idade;
-	public String registoGeral;
-	public String numeroCpf;
-	public String dataNascimento;
-	public String nomeMae;
-	public String nomePai;
+	protected String nome;
+	protected int idade;
+	protected String registoGeral;
+	protected String numeroCpf;
+	protected String dataNascimento;
+	protected String nomeMae;
+	protected String nomePai;
 	
 	
 	
 	
 	
 	
-	
+	//Getters e Setters
 	public String getNome() {
 		return nome;
 	}
