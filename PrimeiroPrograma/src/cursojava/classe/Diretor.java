@@ -28,6 +28,15 @@ public class Diretor extends Pessoa {
 		Titulação = titulação;
 	}
 	
+	//toString
+	@Override
+	public String toString() {
+		return "Diretor [RegistroEducação=" + RegistroEducação + ", TempoDireção=" + TempoDireção + ", Titulação="
+				+ Titulação + ", nome=" + nome + ", idade=" + idade + ", registoGeral=" + registoGeral + ", numeroCpf="
+				+ numeroCpf + ", dataNascimento=" + dataNascimento + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ "]";
+	}
+	
 	
 	
 

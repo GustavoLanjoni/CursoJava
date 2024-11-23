@@ -2,35 +2,46 @@ package cursojava.classe;
 
 public class Secretario extends Pessoa {
 
-	private String Registro;
-	private String NivelCargo;
-	private String Experiencia;
+	private String registro;
+	private String nivelCargo;
+	private String experiencia;
 
 	
 	
 	// Getters e Setters
 	public String getRegistro() {
-		return Registro;
+		return registro;
 	}
 
 	public void setRegistro(String registro) {
-		Registro = registro;
+		registro = registro;
 	}
 
 	public String getNivelCargo() {
-		return NivelCargo;
+		return nivelCargo;
 	}
 
 	public void setNivelCargo(String nivelCargo) {
-		NivelCargo = nivelCargo;
+		nivelCargo = nivelCargo;
 	}
 
 	public String getExperiencia() {
-		return Experiencia;
+		return experiencia;
 	}
 
 	public void setExperiencia(String experiencia) {
-		Experiencia = experiencia;
+		experiencia = experiencia;
 	}
 
+	//toString
+	@Override
+	public String toString() {
+		return "Secretario [registro=" + registro + ", nivelCargo=" + nivelCargo + ", experiencia=" + experiencia
+				+ ", nome=" + nome + ", idade=" + idade + ", registoGeral=" + registoGeral + ", numeroCpf=" + numeroCpf
+				+ ", dataNascimento=" + dataNascimento + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + "]";
+	}
+
+	
+	
+	
 }
