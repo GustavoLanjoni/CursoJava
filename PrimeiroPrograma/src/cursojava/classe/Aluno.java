@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import cursojava.constantes.StatusAluno;
 
+@SuppressWarnings("unused")
 public class Aluno {
 
 	/* Esses são os atributos do aluno */
