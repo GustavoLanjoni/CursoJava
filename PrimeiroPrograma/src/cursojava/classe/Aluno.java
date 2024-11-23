@@ -9,17 +9,10 @@ import javax.swing.JOptionPane;
 import cursojava.constantes.StatusAluno;
 
 @SuppressWarnings("unused")
-public class Aluno {
+public class Aluno  extends Pessoa{
 
 	/* Esses são os atributos do aluno */
-	public String nome;
-	public int idade;
-	public String registoGeral;
-	public String numeroCpf;
-	public String dataNascimento;
-	public String etinia;
-	public String nomeMae;
-	public String nomePai;
+
 	public String escola;
 	public String dataMatricula;
 
@@ -166,7 +159,7 @@ public class Aluno {
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", registoGeral=" + registoGeral + ", numeroCpf="
-				+ numeroCpf + ", dataNascimento=" + dataNascimento + ", etinia=" + etinia + ", nomeMae=" + nomeMae
+				+ numeroCpf + ", dataNascimento=" + dataNascimento + ", etinia=" + ", nomeMae=" + nomeMae
 				+ ", nomePai=" + nomePai + ", escola=" + escola + ", dataMatricula=" + dataMatricula + ", disciplinas="
 				+ disciplinas + "]";
 	}
