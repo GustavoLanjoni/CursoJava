@@ -16,6 +16,7 @@ public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
 
+	try {	
 		// Validação de usuario e senha
 		String login = JOptionPane.showInputDialog("Qual o login?");
 		String senha = JOptionPane.showInputDialog("Qual a senha?");
@@ -124,7 +125,9 @@ public class PrimeiraClasseJava {
 			System.out.println("Resultado = " + aluno.getAlunoAprovado());
 			System.out.println("Com media = " + aluno.getMediaNota());
 		}
-
+	  }catch (Exception e) {
+		  e.printStackTrace();//Imprime os erros mo console
+		  JOptionPane.showMessageDialog(null, "Erro ao processar notas");
 	}
-
+	}
 }
