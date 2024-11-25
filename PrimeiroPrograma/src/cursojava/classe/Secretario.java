@@ -1,12 +1,19 @@
 package cursojava.classe;
 
-public class Secretario extends Pessoa {
+import javax.swing.JOptionPane;
 
+import cursojava.interfaces.PermitirAcesso;
+
+public class Secretario extends Pessoa implements PermitirAcesso {
+
+
+	
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
-
 	
+	private String login;
+	private String senha;
 	
 	// Getters e Setters
 	public String getRegistro() {
@@ -45,6 +52,35 @@ public class Secretario extends Pessoa {
 	public double salario() {
 		// TODO Auto-generated method stub
 		return 2560.55;
+	}
+
+	//Esse é o metodo do contrato de autenticação
+	@Override
+	public boolean autentica() {
+		// TODO Auto-generated method stub
+		return login.equals("admin") && senha.equals("admin");
+		
+	}
+	
+	
+	
+	
+	
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	
