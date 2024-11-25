@@ -1,6 +1,6 @@
 package cursojava.classe;
 
-public class Pessoa {
+public abstract class Pessoa {
 
 	protected String nome;
 	protected int idade;
@@ -10,7 +10,8 @@ public class Pessoa {
 	protected String nomeMae;
 	protected String nomePai;
 	
-	
+	//Metodo abstado é que fica na classe ai e obrigatorio para as classes filhas
+	public abstract double salario();
 	
 	
 	
@@ -63,5 +64,6 @@ public class Pessoa {
 	public boolean pessoaMaiorIdade() {
 		return idade >=  18;
 	}
+	
 	
 }
