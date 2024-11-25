@@ -59,5 +59,9 @@ public class Pessoa {
 		this.nomePai = nomePai;
 	}
 	
+	//Retorna treu caso seja veerdadeiro se não false
+	public boolean pessoaMaiorIdade() {
+		return idade >=  18;
+	}
 	
 }

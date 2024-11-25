@@ -183,7 +183,14 @@ public class Aluno  extends Pessoa{
 
 
 	
+	@Override //indentifica metod sobreescrito
+	public boolean pessoaMaiorIdade() {
+		// TODO Auto-generated method stub
+		return super.pessoaMaiorIdade();
+	}
 	
-	
+	public String MsgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Obaa aluno maior de Idade" : "Ixii você e menor de idade";
+	}
 
 }
