@@ -18,14 +18,13 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		// Validação de usuario e senha
-		String usuario = JOptionPane.showInputDialog("Qual o usuario?");
+		String login = JOptionPane.showInputDialog("Qual o login?");
 		String senha = JOptionPane.showInputDialog("Qual a senha?");
 
 		PermitirAcesso secretario = new Secretario();
 		
 
-		if (secretario.autentica())
-			;
+		if (new Secretario().autenticar(login, senha));
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 
