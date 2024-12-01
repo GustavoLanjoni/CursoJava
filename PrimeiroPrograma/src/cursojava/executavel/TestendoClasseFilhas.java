@@ -1,4 +1,9 @@
-package cursojava.classe;
+package cursojava.executavel;
+
+import cursojava.classe.Aluno;
+import cursojava.classe.Diretor;
+import cursojava.classe.Pessoa;
+import cursojava.classe.Secretario;
 
 public class TestendoClasseFilhas {
 
