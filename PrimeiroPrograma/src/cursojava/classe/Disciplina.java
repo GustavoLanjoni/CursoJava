@@ -5,7 +5,7 @@ import java.util.Objects;
 /*Essa classe Disciplina servira para todos os objetos e instaia de nota e materias */
 public class Disciplina {
 
-	public double nota;
+	public double nota[] = new double[4];
 	public String disciplina;
 
 	// Getters e setters
