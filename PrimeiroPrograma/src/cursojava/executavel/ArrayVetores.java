@@ -15,6 +15,7 @@ public class ArrayVetores {
 		//Criação dos alunos 
 		Aluno aluno = new Aluno();
 		aluno.setNome("Gustavo");
+		aluno.setEscola("JDEV Treinamento");
 		aluno.setIdade(19);
 		
 		//Criação das disciplinas
@@ -29,6 +30,18 @@ public class ArrayVetores {
 		disciplina2.setNota(notaLogica);
 		
 		aluno.getDisciplinas().add(disciplina2);
+		
+		
+		System.out.println("Nome do aluno " + aluno.getNome() + " Cusando o curso " + aluno.getEscola()); 
+		for (Disciplina disc : aluno.getDisciplinas()) {
+			System.out.println("-----------Disciplina do aluno---------");
+			System.out.println("Disciplina " + disc.getDisciplina());
+			System.out.println("As notas são");
+			
+			for(int pos = 0 ; pos < disc.getNota().length; pos ++) {
+				System.out.println("Nota " + pos + " e igual " + disc.getNota()[pos]);
+			}
+		}
 		
 	}
 	
