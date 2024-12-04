@@ -31,32 +31,25 @@ public class ArrayVetores {
 		
 		aluno.getDisciplinas().add(disciplina2);
 		
+		//---------------------------------------
 		
-		System.out.println("Nome do aluno = " + aluno.getNome() + "inscrito no curso : " + aluno.getEscola());
-		System.out.println("---------------Disciplina----------");
+		Aluno[]arrayAlunos = new Aluno[1];
 		
-		for(Disciplina disc : aluno.getDisciplinas()) {
-			System.out.println("Disciplina : " + disc.getDisciplina());
-			System.out.println("A notas da disciplina são");
+		arrayAlunos[0] = aluno; 
+		for(int pos = 0; pos < arrayAlunos.length; pos ++) {
+			System.out.println("Nome do aluno e " + arrayAlunos[pos].getNome());
 			
-			double notaMax = 0.0;
-			
-			for(int pos = 0; pos < disc.getNota().length; pos ++) {
-				System.out.println("Nota " + pos + "e igual =" + disc.getNota()[pos]);
-				if(pos == 0) {
-					notaMax = disc.getNota()[pos];
-				}else {
-					if(disc.getNota()[pos] > notaMax) {
-						notaMax = disc.getNota()[pos];
-					}
-				}
+			for(Disciplina disc : arrayAlunos[pos].getDisciplinas()) {
+				System.out.println("Nome da disciplina e: " + disc.getDisciplina());
 				
+				for(int posNota = 0; posNota < disc.getNota().length; posNota ++) {
+					System.out.println("As notas " + posNota + "e igual " + disc.getNota()[posNota]);
+					
+					
+				}
 			}
-			System.out.println("A maior nota da Disciplina " + disc.getDisciplina() + "é de valor " + notaMax);
-		
-			
-			
 		}
+		
 		
 	}
 	
